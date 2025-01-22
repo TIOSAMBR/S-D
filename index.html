@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Um site dedicado ao amor e ao relacionamento.">
+    <meta name="keywords" content="amor, namoro, fotos, relacionamento">
+    <meta name="author" content="Seu nome">
+    <meta property="og:title" content="Nosso Amor 💖">
+    <meta property="og:description" content="Celebrando o nosso amor e tempo juntos.">
+    <meta property="og:image" content="foto1.jpg">
+    <meta property="og:url" content="URL do seu site">
+    <title>Nosso Amor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4f4f4f, #1e1e1e);
+            color: #ff4081;
+            padding: 80px 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 5px solid #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        header:hover {
+            background: linear-gradient(135deg, #ff4081, #ff4081);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 50px;
+            background: #222;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .message {
+            font-size: 1.7em;
+            margin-bottom: 40px;
+            color: #bbb;
+            font-weight: 500;
+            line-height: 1.7;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .photos {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            height: 450px;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 3s ease-out;
+        }
+
+        .photos img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .photos img.active {
+            opacity: 1;
+        }
+
+        .contact-box {
+            margin-top: 50px;
+            background: #333;
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+            width: 100%;
+        }
+
+        .contact-box h3 {
+            font-size: 2.2em;
+            color: #ff4081;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .timer div {
+            background: #333;
+            padding: 12px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #f2f2f2;
+            text-align: center;
+            min-width: 70px;
+            transition: transform 0.3s ease;
+        }
+
+        .timer div:hover {
+            transform: scale(1.1);
+        }
+
+        .unit {
+            font-size: 0.7em;
+            margin-top: 5px;
+            text-transform: uppercase;
+            color: #ff4081;
+        }
+
+        footer {
+            margin-top: 60px;
+            color: #aaa;
+            font-size: 1.2em;
+            padding: 30px;
+            background: #121212;
+            box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        footer a {
+            color: #ff4081;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 3em;
+                padding: 70px 0;
+            }
+
+            .message {
+                font-size: 1.5em;
+                margin-bottom: 25px;
+            }
+
+            .timer {
+                font-size: 1.4em;
+                gap: 10px;
+            }
+
+            .timer div {
+                font-size: 1.4em;
+                padding: 12px 15px;
+            }
+
+            .photos {
+                height: 350px;
+            }
+
+            .photos img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timer {
+                font-size: 1.2em;
+            }
+
+            .timer div {
+                font-size: 1.2em;
+                padding: 10px 12px;
+            }
+
+            .photos {
+                height: 300px;
+            }
+
+            .photos img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header> S 💖 D</header>
+
+    <div class="container">
+        <p class="message">
+            Cada momento ao seu lado é um presente. Juntos, fazemos a vida mais colorida e cheia de significado.
+            Eu te amo mais do que palavras podem expressar! 💕
+        </p>
+
+        <div class="photos">
+            <img src="foto1.jpg" alt="Foto do casal em uma viagem" class="active" loading="lazy">
+            <img src="foto2.jpg" alt="Foto do casal no parque" loading="lazy">
+            <img src="foto3.jpg" alt="Foto do casal na praia" loading="lazy">
+            <img src="foto4.jpg" alt="Foto do casal no pôr do sol" loading="lazy">
+        </div>
+
+        <div class="contact-box">
+            <h3>Nosso Tempo Juntos</h3>
+            <div class="timer">
+                <div>
+                    <span id="years">00</span>
+                    <span class="unit">Anos</span>
+                </div>
+                <div>
+                    <span id="months">00</span>
+                    <span class="unit">Meses</span>
+                </div>
+                <div>
+                    <span id="days">00</span>
+                    <span class="unit">Dias</span>
+                </div>
+                <div>
+                    <span id="hours">00</span>
+                    <span class="unit">Horas</span>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <span class="unit">Minutos</span>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <span class="unit">Segundos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Feito com 💘 por <a href="#">Samuel Toledo</a> 🌹
+    </footer>
+
+    <script>
+        // Data de início do relacionamento
+        const startDate = new Date("2024-01-01"); // Substitua pela data de início real
+        const timerElements = {
+            years: document.getElementById('years'),
+            months: document.getElementById('months'),
+            days: document.getElementById('days'),
+            hours: document.getElementById('hours'),
+            minutes: document.getElementById('minutes'),
+            seconds: document.getElementById('seconds')
+        };
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            timerElements.years.textContent = years < 10 ? '0' + years : years;
+            timerElements.months.textContent = months < 10 ? '0' + months : months;
+            timerElements.days.textContent = days < 10 ? '0' + days : days;
+            timerElements.hours.textContent = hours < 10 ? '0' + hours : hours;
+            timerElements.minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+            timerElements.seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateTimer, 1000);
+
+        // Galeria de imagens
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.photos img');
+
+        function changeImage() {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 3000);
+    </script>
+
+</body>
+</html>
