@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Um site dedicado ao amor e ao relacionamento.">
     <meta name="keywords" content="amor, namoro, fotos, relacionamento">
-    <meta name="author" content="Seu nome">
+    <meta name="author" content="Samuel Toledo">
     <meta property="og:title" content="Nosso Amor 💖">
     <meta property="og:description" content="Celebrando o nosso amor e tempo juntos.">
     <meta property="og:image" content="foto1.jpg">
@@ -23,29 +23,27 @@
             background: #0a0a0a;
             color: #f2f2f2;
             text-align: center;
-            padding: 0;
-            margin: 0;
             overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, #4f4f4f, #1e1e1e);
-            color: #ff4081;
+            background: linear-gradient(135deg, #ff4081, #ff2d55, #ff4081);
+            background-size: 400% 400%;
+            animation: gradient 6s ease infinite;
+            color: #fff;
             padding: 80px 0;
             font-size: 3.5em;
             font-weight: 700;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
             letter-spacing: 3px;
             text-transform: uppercase;
             border-bottom: 5px solid #444;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease;
         }
 
-        header:hover {
-            background: linear-gradient(135deg, #ff4081, #ff4081);
-            color: #000;
-            transform: scale(1.05);
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
         }
 
         .container {
@@ -59,9 +57,9 @@
         }
 
         .message {
-            font-size: 1.7em;
+            font-size: 1.8em;
             margin-bottom: 40px;
-            color: #bbb;
+            color: #ffb3c6;
             font-weight: 500;
             line-height: 1.7;
             text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
@@ -69,8 +67,8 @@
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% { opacity: 0; transform: translateY(20px);}
+            100% { opacity: 1; transform: translateY(0);}
         }
 
         .photos {
@@ -128,11 +126,11 @@
         }
 
         .timer div {
-            background: #333;
-            padding: 12px 20px;
+            background: #444;
+            padding: 14px 22px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: 700;
             color: #f2f2f2;
             text-align: center;
@@ -145,10 +143,29 @@
         }
 
         .unit {
-            font-size: 0.7em;
-            margin-top: 5px;
+            display: block;
+            font-size: 0.6em;
             text-transform: uppercase;
             color: #ff4081;
+            margin-top: 5px;
+        }
+
+        /* Botão do áudio */
+        .audio-btn {
+            margin-top: 30px;
+            background: #ff4081;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .audio-btn:hover {
+            background: #ff2d55;
         }
 
         footer {
@@ -181,54 +198,30 @@
                 margin-bottom: 25px;
             }
 
-            .timer {
-                font-size: 1.4em;
-                gap: 10px;
-            }
-
-            .timer div {
-                font-size: 1.4em;
-                padding: 12px 15px;
-            }
-
             .photos {
                 height: 350px;
-            }
-
-            .photos img {
-                width: 100%;
-                height: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .timer {
-                font-size: 1.2em;
-            }
-
             .timer div {
-                font-size: 1.2em;
-                padding: 10px 12px;
+                font-size: 1.4em;
+                padding: 10px 15px;
             }
 
             .photos {
                 height: 300px;
-            }
-
-            .photos img {
-                width: 100%;
-                height: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <header> S 💖 D</header>
+    <header>S 💖 D</header>
 
     <div class="container">
         <p class="message">
-            Cada momento ao seu lado é um presente. Obrigada por sempre estar comigo dondoca ! 💕
+            Cada momento ao seu lado é um presente. Obrigada por sempre estar comigo dondoca! 💕
         </p>
 
         <div class="photos">
@@ -250,31 +243,17 @@
         <div class="contact-box">
             <h3>Nosso Tempo Juntos</h3>
             <div class="timer">
-                <div>
-                    <span id="years">00</span>
-                    <span class="unit">Anos</span>
-                </div>
-                <div>
-                    <span id="months">00</span>
-                    <span class="unit">Meses</span>
-                </div>
-                <div>
-                    <span id="days">00</span>
-                    <span class="unit">Dias</span>
-                </div>
-                <div>
-                    <span id="hours">00</span>
-                    <span class="unit">Horas</span>
-                </div>
-                <div>
-                    <span id="minutes">00</span>
-                    <span class="unit">Minutos</span>
-                </div>
-                <div>
-                    <span id="seconds">00</span>
-                    <span class="unit">Segundos</span>
-                </div>
+                <div><span id="years">00</span><span class="unit">Anos</span></div>
+                <div><span id="months">00</span><span class="unit">Meses</span></div>
+                <div><span id="days">00</span><span class="unit">Dias</span></div>
+                <div><span id="hours">00</span><span class="unit">Horas</span></div>
+                <div><span id="minutes">00</span><span class="unit">Minutos</span></div>
+                <div><span id="seconds">00</span><span class="unit">Segundos</span></div>
             </div>
+
+            <!-- Botão para tocar áudio -->
+            <button class="audio-btn" onclick="playLove()">💗 Ouvir 'Eu te amo'</button>
+            <audio id="loveAudio" src="eu_te_amo.mp3"></audio>
         </div>
     </div>
 
@@ -283,8 +262,8 @@
     </footer>
 
     <script>
-        // Data de início do relacionamento
-        const startDate = new Date("2024-08-31"); // Substitua pela data de início real
+        // Timer
+        const startDate = new Date("2024-08-31");
         const timerElements = {
             years: document.getElementById('years'),
             months: document.getElementById('months'),
@@ -305,28 +284,31 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            timerElements.years.textContent = years < 10 ? '0' + years : years;
-            timerElements.months.textContent = months < 10 ? '0' + months : months;
-            timerElements.days.textContent = days < 10 ? '0' + days : days;
-            timerElements.hours.textContent = hours < 10 ? '0' + hours : hours;
-            timerElements.minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
-            timerElements.seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+            timerElements.years.textContent = years.toString().padStart(2, '0');
+            timerElements.months.textContent = months.toString().padStart(2, '0');
+            timerElements.days.textContent = days.toString().padStart(2, '0');
+            timerElements.hours.textContent = hours.toString().padStart(2, '0');
+            timerElements.minutes.textContent = minutes.toString().padStart(2, '0');
+            timerElements.seconds.textContent = seconds.toString().padStart(2, '0');
         }
 
         setInterval(updateTimer, 1000);
 
-        // Galeria de imagens
+        // Galeria
         let currentImageIndex = 0;
         const images = document.querySelectorAll('.photos img');
-
         function changeImage() {
             images[currentImageIndex].classList.remove('active');
             currentImageIndex = (currentImageIndex + 1) % images.length;
             images[currentImageIndex].classList.add('active');
         }
-
         setInterval(changeImage, 3000);
-    </script>
 
+        // Áudio Eu te amo
+        function playLove() {
+            const audio = document.getElementById('loveAudio');
+            audio.play();
+        }
+    </script>
 </body>
 </html>
