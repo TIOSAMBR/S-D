@@ -262,37 +262,48 @@
     </footer>
 
     <script>
-        // Timer
         const startDate = new Date("2024-08-31");
-        const timerElements = {
-            years: document.getElementById('years'),
-            months: document.getElementById('months'),
-            days: document.getElementById('days'),
-            hours: document.getElementById('hours'),
-            minutes: document.getElementById('minutes'),
-            seconds: document.getElementById('seconds')
-        };
 
-        function updateTimer() {
-            const now = new Date();
-            const diff = now - startDate;
+const timerElements = {
+    years: document.getElementById('years'),
+    months: document.getElementById('months'),
+    days: document.getElementById('days'),
+    hours: document.getElementById('hours'),
+    minutes: document.getElementById('minutes'),
+    seconds: document.getElementById('seconds')
+};
 
-            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+function updateTimer() {
+    const now = new Date();
 
-            timerElements.years.textContent = years.toString().padStart(2, '0');
-            timerElements.months.textContent = months.toString().padStart(2, '0');
-            timerElements.days.textContent = days.toString().padStart(2, '0');
-            timerElements.hours.textContent = hours.toString().padStart(2, '0');
-            timerElements.minutes.textContent = minutes.toString().padStart(2, '0');
-            timerElements.seconds.textContent = seconds.toString().padStart(2, '0');
-        }
+    let years = now.getFullYear() - startDate.getFullYear();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
 
-        setInterval(updateTimer, 1000);
+    if (days < 0) {
+        months--;
+        const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += lastMonth.getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    timerElements.years.textContent = String(years).padStart(2, '0');
+    timerElements.months.textContent = String(months).padStart(2, '0');
+    timerElements.days.textContent = String(days).padStart(2, '0');
+    timerElements.hours.textContent = String(hours).padStart(2, '0');
+    timerElements.minutes.textContent = String(minutes).padStart(2, '0');
+    timerElements.seconds.textContent = String(seconds).padStart(2, '0');
+}
+
+setInterval(updateTimer, 1000);
 
         // Galeria
         let currentImageIndex = 0;
