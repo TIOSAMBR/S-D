@@ -38,12 +38,9 @@ function updateTimer() {
         months += 12;
     }
 
-    const diff = now - startDate;
-    const totalSeconds = Math.floor(diff / 1000);
-
-    const seconds = totalSeconds % 60;
-    const minutes = Math.floor(totalSeconds / 60) % 60;
-    const hours = Math.floor(totalSeconds / 3600) % 24;
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
 
     updateElement(timerElements.years, String(years).padStart(2,'0'));
     updateElement(timerElements.months, String(months).padStart(2,'0'));
